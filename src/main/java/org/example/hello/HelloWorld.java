@@ -7,5 +7,4 @@ public class HelloWorld {
         // shortcut -> sout -> enter
         System.out.println("Hello World!");
     }
-
 }

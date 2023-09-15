@@ -11,7 +11,7 @@ public class Frog extends Amphibian {
 
     @Override
     public void eat() {
-        System.out.println("eating frog");
+        System.out.println("Frog is eating");
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Frog extends Amphibian {
 
     @Override
     public void hunt() {
-
+        System.out.println("Frog is being hunted");
     }
 
     @Override

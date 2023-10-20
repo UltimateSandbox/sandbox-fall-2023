@@ -6,10 +6,12 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private Node head;
     private Node tail;
+    private int count;
 
     public SinglyLinkedList() {
         head = null;
         tail = null;
+        count = 0;
     }
 
     @Override
@@ -23,7 +25,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         } else {
             head = newNode; // 3
         }
-
+        count++;
     }
 
     @Override
@@ -38,27 +40,65 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
             tail.next = newNode; // 2
             tail = newNode; // 3
         }
-
+        count++;
     }
 
     @Override
     public E pollFirst() {
-        return null;
+
+        E element; // 1
+        if (head == null) {
+            element = null; // 1
+        } else {
+            element = head.element; // 1
+
+            Node next = head.next; // 2
+            head.next = null; // 3
+            head = next; // 4
+        }
+        count--;
+        return element;
     }
 
     @Override
     public E pollLast() {
-        return null;
+
+        E element; // 1
+        if (tail == null) {
+            element = null;
+        } else {
+
+            element = tail.element; // 1
+
+            if (head == tail) {
+                // if list is one element
+                head = null;
+                tail = null;
+            } else {
+
+                // if list is more than one element...
+                Node current = head; // 2
+                Node previous = head; // 2
+                while(current.next != null){ // 2
+                    previous = current;
+                    current = current.next;
+                }
+                tail = previous; // 3
+                tail.next = null; // 4
+            }
+        }
+        count--;
+        return element;
     }
 
     @Override
     public E peekFirst() {
-        return null;
+        return head.element;
     }
 
     @Override
     public E peekLast() {
-        return null;
+        return tail.element;
     }
 
     @Override
@@ -72,8 +112,8 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     }
 
     @Override
-    public boolean size() {
-        return false;
+    public int size() {
+        return this.count;
     }
 
     @Override

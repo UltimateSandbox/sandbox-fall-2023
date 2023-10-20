@@ -18,6 +18,8 @@ public class SingleDriver {
         linkedList.addLast("seventh");
         linkedList.addLast("eighth");
 
+        System.out.println(linkedList.size());
+
         System.out.println(linkedList.contains("first"));
         System.out.println(linkedList.contains("eighth"));
         System.out.println(linkedList.contains("tenth"));

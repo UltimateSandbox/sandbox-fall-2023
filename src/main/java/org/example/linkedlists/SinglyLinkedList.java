@@ -17,17 +17,27 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
         Node newNode = new Node(element, head); // 1 & 2
 
-        if (head == null) {
+        if (head == null) { // corner case
             head = newNode;
             tail = head;
         } else {
-            head = newNode;
+            head = newNode; // 3
         }
 
     }
 
     @Override
     public void addLast(E element) {
+
+        Node newNode = new Node(element, null);  // 1
+
+        if (tail == null) {  // corner case
+            tail = newNode;
+            head = tail;
+        } else {
+            tail.next = newNode; // 2
+            tail = newNode; // 3
+        }
 
     }
 

@@ -2,6 +2,11 @@ package org.example.linkedlists;
 
 import java.util.StringJoiner;
 
+/**
+ * A custom linked list implementation
+ *
+ * @param <E> element
+ */
 public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private Node head;
@@ -17,6 +22,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public void addFirst(E element) {
 
+        // O(1) performance
         Node newNode = new Node(element, head); // 1 & 2
 
         if (head == null) { // corner case
@@ -31,6 +37,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public void addLast(E element) {
 
+        // O(1) performance
         Node newNode = new Node(element, null);  // 1
 
         if (tail == null) {  // corner case
@@ -46,6 +53,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public E pollFirst() {
 
+        // O(1) performance
         E element; // 1
         if (head == null) {
             element = null; // 1
@@ -63,6 +71,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public E pollLast() {
 
+        // O(n) performance
         E element; // 1
         if (tail == null) {
             element = null;
@@ -93,32 +102,65 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E peekFirst() {
+        // O(1) performance
         return head.element;
     }
 
     @Override
     public E peekLast() {
+        // O(1) performance
         return tail.element;
     }
 
     @Override
     public void clear() {
 
+        /*
+        We iterate over the nodes and nullify the nodes.
+        O(n) performance.
+         */
+        Node current = head;
+        while(current.next != null) {
+            Node next = current.next;
+            current.next = null;
+            current = next;
+        }
+
+        head = null;
+        tail = null;
+        count = 0;
     }
 
     @Override
     public boolean contains(E element) {
-        return false;
+
+        /*
+        We iterate over the nodes and check to see if the element is present.
+        O(n) performance.
+         */
+        boolean contains = false;
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            if (current.element == element) {
+                contains = true;
+                break;
+            }
+            current = next;
+        }
+        return contains;
     }
 
     @Override
     public int size() {
+        // O(1) performance
         return this.count;
     }
 
     @Override
     public String toString() {
 
+        // O(n) performance
         StringBuilder builder = new StringBuilder("[");
         StringJoiner joiner = new StringJoiner(", ");
         Node current = head;

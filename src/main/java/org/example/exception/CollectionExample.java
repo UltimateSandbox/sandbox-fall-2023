@@ -5,8 +5,11 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ScannerExample {
+public class CollectionExample {
 
+    /*
+    adding values input from the command line
+     */
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

@@ -31,11 +31,11 @@ public class SortingDriver {
         printFirstTenOfArray(copy2);
 
         System.out.println("\nBubble Sort...");
-        //SortingUtility.bubbleSort(copy3);
+        SortingUtility.bubbleSort(copy3);
         printFirstTenOfArray(copy3);
 
         System.out.println("\nQuick Sort...");
-        //SortingUtility.quickSort(copy4);
+        SortingUtility.quickSort(copy4);
         printFirstTenOfArray(copy4);
 
         System.out.println("\nMerge Sort...");
